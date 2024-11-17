@@ -144,6 +144,10 @@ If (-not (Test-Path -Path $Config.BackupsPath)) {
     Exit
 }
 
+# Show the configuration settings, excluding username and password
+$Config | Select-Object -Property * -ExcludeProperty Username,Password
+
+
 #endregion
 
 # ==========================================================================
@@ -185,7 +189,7 @@ catch {
 # Zip the backups and move to backup path
 $ZipSourcePath = Join-Path -Path $Config.Temp -ChildPath "*"
 $ZipFileName = "$(Get-Date -Format yyyyMMdd_HHmmss)_$($Devices.count).zip"
-$ZipPath = Join-Path -Path $Config.Path -ChildPath $ZipFileName
+$ZipPath = Join-Path -Path $Config.BackupsPath -ChildPath $ZipFileName
 
 try {
     Compress-Archive -Path $ZipSourcePath -DestinationPath $ZipPath -Force
