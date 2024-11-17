@@ -1,0 +1,8 @@
+{
+    "BackupsPath": "",
+    "KeepDays": "365",
+    "KeepLast": "100",
+    "APIRegion": "us",
+    "Username": "",
+    "Password": "",
+}

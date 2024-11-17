@@ -1,0 +1,16 @@
+services:
+  fg-backup:
+    image: ghcr.io/jmclaren7/fg-backup:latest
+    environment:
+      - TZ=America/New_York
+      - FG_CRON=0 22 * * * #Backups run using cron job
+      - FG_USERNAME= #Your FortiGate API username
+      - FG_PASSWORD= #Your FortiGate API password
+      - FG_APIREGION=us #The region devices are in: global, us, europe
+    #It's recomended to store your config value in a seperate file
+    #env_file:  
+    #  - .env
+    volumes:
+      - ./fg-backups:/fg-backups
+    restart: unless-stopped
+networks: {}
