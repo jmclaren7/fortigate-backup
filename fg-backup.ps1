@@ -1,4 +1,5 @@
-# Script to backup foritgate configurations using the FortiCloud API
+# Script to backup foritgate configurations using the FortiCloud API 
+# https://github.com/jmclaren7/fortigate-backup
 
 # Ensure TLS 1.2 is used for secure connections
 [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
