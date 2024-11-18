@@ -5,7 +5,7 @@ This project provides a PowerShell script and a Docker image to backup FortiGate
 * Backup FortiGate device configurations using the FortiCloud API.
 * Compress and store backups.
 * Prune old backups based on configurable retention policies.
-* Deployable as a Docker container with scheduled backups using cron or as a standalone script.
+* Deployable as a Docker container (amd64 or arm64) or as a standalone script.
 * Standalone script works on any powershell 7 compatible platform (Windows, Linux, MacOS).
 
 ## Prerequisites
