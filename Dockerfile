@@ -1,5 +1,5 @@
 # Use the official PowerShell image as the base image
-FROM --platform=$TARGETPLATFORM alpine:latest
+FROM alpine:latest
 
 #RUN apt-get update && apt-get -y install cron
 RUN apk -U upgrade; apk add --no-cache powershell
