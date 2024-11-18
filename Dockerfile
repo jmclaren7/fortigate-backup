@@ -1,5 +1,5 @@
 # Use the official PowerShell image as the base image
-FROM alpine:latest
+FROM --platform=$TARGETPLATFORM alpine:latest
 
 #RUN apt-get update && apt-get -y install cron
 RUN apk -U upgrade; apk add --no-cache powershell
@@ -8,12 +8,10 @@ RUN apk -U upgrade; apk add --no-cache powershell
 WORKDIR /
 
 # Copy the project files
-COPY entrypoint.sh /entrypoint.sh
-COPY fg-backup.ps1 /fg-backup.ps1
+COPY entrypoint.sh fg-backup.ps1 /
 
 # Give execution rights on the entrypoint script
 RUN chmod +x /entrypoint.sh
-RUN ls / -la
+
 # Set the entrypoint to entrypoint.sh
-#ENTRYPOINT ["/entrypoint.sh"]
 ENTRYPOINT ["/entrypoint.sh"]
