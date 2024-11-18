@@ -1,10 +1,13 @@
 name: Build Image
 on:
+  schedule:
+    - cron: '50 6 * * 5'
   push:
     branches: [main]
-    paths-ignore:
-      - '.github/**'
-      - '*.md'
+    paths:
+      - 'Dockerfile'
+      - 'entrypoint.sh'
+      - 'fg-backup.ps1'
   release:
     types: [published]
 
