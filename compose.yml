@@ -7,6 +7,8 @@ services:
       - FG_USERNAME= #Your FortiGate API username
       - FG_PASSWORD= #Your FortiGate API password
       - FG_APIREGION=us #The region devices are in: global, us, europe
+      - FG_KEEPDAYS=30 #Number of days to keep backups for
+      - FG_KEEPLAST=7 #Minimum number of backups to keep
     #It's recomended to store your config value in a seperate file
     #env_file:  
     #  - .env

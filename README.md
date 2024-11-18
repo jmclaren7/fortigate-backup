@@ -1,7 +1,9 @@
 # FortiGate Backup
+
 This project provides a PowerShell script and a Docker image to backup FortiGate configurations using the FortiCloud API. The backups can be scheduled using cron jobs and managed through Docker Compose.
 
 ## Features
+
 * Backup FortiGate device configurations using the FortiCloud API.
 * Compress and store backups.
 * Prune old backups based on configurable retention policies.
@@ -13,6 +15,9 @@ This project provides a PowerShell script and a Docker image to backup FortiGate
 * Docker and Docker Compose.
 
 ## Configuration
+
+If you're using the docker image, configure the settings by editing environment variables in the compose.yml file. If your using the standalone script, you can configure the backup settings by creating a fg-backup.json file.
+
 * Create a configuration file named fg-backup.json (matches the script name) in the same directory as fg-backup.ps1. Use the following template:
 
 ```json
@@ -34,6 +39,7 @@ This project provides a PowerShell script and a Docker image to backup FortiGate
 * Password: FortiGate API password.
 
 ## Usage
+
 First, create IAM API user credentials on FortiCloud: https://docs.fortinet.com/index.php/document/forticloud/24.3.0/identity-access-management-iam/282341/adding-an-api-user
 
 ### Running the PowerShell Script
