@@ -1,4 +1,4 @@
-name: Build Testing
+name: Build Image
 on:
   push:
     branches: [main]
@@ -36,13 +36,15 @@ jobs:
         uses: docker/metadata-action@v5
         with:
           images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
+      - name: Set up QEMU
+        uses: docker/setup-qemu-action@v3
       # build the image, push the image to GitHub Packages.
       - name: Build and push Docker image
         id: push
         uses: docker/build-push-action@v6
         with:
           context: .
-          platforms: linux/amd64,linux/arm64
+          platforms: linux/amd64, linux/arm64
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
