@@ -1,6 +1,6 @@
 services:
   fg-backup:
-    image: ghcr.io/jmclaren7/fg-backup:latest
+    image: ghcr.io/jmclaren7/fortigate-backup:latest
     environment:
       - TZ=America/New_York
       - FG_CRON=0 22 * * * #Backups run using cron job
