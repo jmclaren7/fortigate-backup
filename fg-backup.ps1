@@ -96,7 +96,7 @@ Write-Host "Loading settings..."
 $Config = @{
     API       = "https://www.forticloud.com/forticloudapi/v1"
     APIRegion = ""
-    BackupsPath      = Join-Path -Path $PSScriptRoot -ChildPath "fg-backups"
+    BackupsPath = Join-Path -Path $PSScriptRoot -ChildPath "fg-backups"
     KeepDays  = 30
     KeepLast  = 7
     Username  = ""
@@ -212,7 +212,7 @@ if ($Backups.Count -lt $Config.KeepLast) {
     $CurrentDate = Get-Date
     foreach ($Backup in $Backups) {
         $BackupDate = [datetime]::ParseExact($Backup.Name.Substring(0, 8), "yyyyMMdd", $null)
-        if ($CurrentDate.AddDays(-$Config.KeepDays) -gt $BackupDate) {
+        if ($CurrentDate.AddDays(-$Config.KeepDays-1) -gt $BackupDate) {
             Remove-Item -Path $Backup.FullName -Force
             Write-Host "Removed old backup: $($Backup.Name)"
         }
